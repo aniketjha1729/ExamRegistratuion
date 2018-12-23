@@ -15,6 +15,7 @@
         <button type="submit" name="view">View</button>
     </form>
     <?php
+        session_start();
         $dbname="try";$dbservername="localhost";$password="";$username="root";
         $conn=mysqli_connect($dbservername,$username,$password,$dbname);
         if (isset($_POST['sumbitbtn'])) {
@@ -31,6 +32,7 @@
                         // echo "<b>Type:</b> " . $_FILES["file"]["type"] . "<br>";
                         // echo "<b>Size:</b> " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
                         // echo "<b>Temp file:</b> " . $_FILES["file"]["tmp_name"] . "<br>";
+                        $filename=$_FILES["file"]["name"];
                         if (file_exists("upload/" . $_FILES["file"]["name"])) {
                             echo $_FILES["file"]["name"] . " <b>already exists.</b> ";
                         } else {
@@ -50,13 +52,18 @@
             else {
                 echo "<span>***Invalid file Size or Type***<span>";
             }
+            $_SESSION['filename']=$filename;//path of the file stored in the array
         }
+        
     ?>
     <?php
+        // session_start();
         $dbname="try";$dbservername="localhost";$password="";$username="root";
         $conn=mysqli_connect($dbservername,$username,$password,$dbname);
         if(isset($_POST['view'])){
-            echo $imgFullpath;
+            $file_name=$_SESSION['filename'];
+            //echo $filepath;
+            echo '<img src="upload/'.$file_name.' "/>';
         }
     
     ?>
