@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <form action="" enctype="multipart/form-data" method="post" >
@@ -54,7 +55,6 @@
             }
             $_SESSION['filename']=$filename;//path of the file stored in the array
         }
-        
     ?>
     <?php
         // session_start();
@@ -63,10 +63,10 @@
         if(isset($_POST['view'])){
             $file_name=$_SESSION['filename'];
             //echo $filepath;
-            echo '<img src="upload/'.$file_name.' "/>';
+            echo '<img src="upload/'.$file_name.'" id="fileimage" class="filename"/>';
         }
-    
     ?>
+    <br><button type="button" onclick='document.getElementById("fileimage").style.display="none"'>Click me to hide</button>
 </body>
 
 
