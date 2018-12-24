@@ -67,18 +67,60 @@
       <div class="frominput">
         <span>Post applied For:</span>
         <div><b> Software Engineer</b></div>
-
       </div>
       <div class="frominput">
         <span>Name of the candidate (As per 10th certificate)* </span>
         <div><input type="text" name="name"></div>
       </div>
       <div class="frominput">
-        <span>aniket</span>
-        <span>aninket</span>
-        <span>aniket</span>
+        <table>
+          <tr>
+            <td class="tdform">Date of Birth</td>
+            <td class="tdform">Age Calculated as of now</td>
+            <td class="tdform">Gender</td>
+          </tr>
+          <tr>
+            <td class="tdform"><input type="text"></td>
+            <td class="tdform"><input type="text" name="" id=""></td>
+            <td class="tdform">
+              <select name="gender" id="">
+                <option value="male">male</option>
+                <option value="female">female</option>
+              </select>
+            </td>
+          </tr>
+        </table>
       </div>
-
+      <div class="frominput">
+        <table>
+          <tr>
+            <td class="tdform">Email</td>
+            <td class="tdform">Confirm Emali</td>
+            <td class="tdform">Phone</td>
+          </tr>
+          <tr>
+            <td class="tdform"><input type="email"></td>
+            <td class="tdform"><input type="email" name="" id=""></td>
+            <td class="tdform"><input type="number"></td>
+          </tr>
+        </table>
+      </div>
+      <div class="frominput">
+        Captcha:
+      </div>
+      <div class="frominput">
+        <table>
+          <tr>
+            <td class="agree"><input type="checkbox" name="" id=""></td>
+            <td class="agree">I declare that I have gone through the advertisement and I satisfy the Reqirements as per Rule.</td>
+          </tr></table>
+      </div>
+      <div class="frominput">
+      <center>
+         <button type="submit">Submit</button>
+         <button type="submit">Cancel</button>
+      </center>
+      </div>
     </div>
 
     

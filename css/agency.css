@@ -79,16 +79,23 @@ body {
   border-radius: 5px;
 }
 .formtitle{
-  border: #0fb4dd solid 4px;
+  /* border: #0fb4dd solid 4px; */
   background-color:  #0fb4dd;
   border-radius: 5px;
   color: bisque;
 }
 .frominput{
-  margin-top: 2%;
+  margin-top: 3%;
   margin-left: 1%;
+  /* border: teal solid 3px; */
 }
 input{
   border-radius: 5px;
+  border: transparent;
   height: 20px;
+  box-shadow: none
+}
+
+.tdform{
+  width: 300px;
 }
