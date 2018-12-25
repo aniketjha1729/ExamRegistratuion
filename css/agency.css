@@ -79,6 +79,13 @@ body {
   border-radius: 5px;
   box-shadow: 3px 3px 5px 5px #0c7de7;
 }
+.msg{
+  margin-top: 10%;
+  border: #212529 4px solid;
+  margin-left: 2%;
+  border-radius: 5px;
+  /* box-shadow: 3px 3px 5px 5px #0c7de7; */
+}
 .formtitle{
   /* border: #0fb4dd solid 4px; */
   background-color:  #0fb4dd;
@@ -104,27 +111,30 @@ body {
 .tdform{
   width: 300px;
 }
+
 select{
   width: 150px;
   border: transparent;
   border-radius: 5px;
   background-color: white;
 }
-/* table,td,tr{
-  border: 2px solid;
-} */
 .sub{
-  background-color: rgb(201, 25, 25);
+  background-color: rgb(18, 128, 18);
   border-radius:4px;
   border: transparent; 
   width: 150px;
   color: azure;
   
+  
 }
 .can{
-  background-color: rgb(90, 236, 90);
+  background-color: rgb(201, 25, 25);
   border-radius:4px;
   border: transparent;
   width: 150px;
   color: azure; 
 }
+/* td,tr{
+  border: #e4d143 solid 4px;
+  margin-left: 4%;
+} */

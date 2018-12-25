@@ -82,11 +82,11 @@
               <td class="tdform">Gender</td>
             </tr>
             <tr>
-              <td class="tdform"><input type="text" class="input" placeholder="DD/MM/YYYY" required></td>
+              <td class="tdform"><input type="text" class="input" name="dob" placeholder="DD/MM/YYYY" required></td>
               <td class="tdform"><input type="text" class="input" name="" id="" required></td>
               <td class="tdform">
-                <select name="gender" id="" style="-webkit-appearance: none";>
-                  <option value="selctg">--Select--</option>
+                <select name="gender[]" id="" style="-webkit-appearance: none";>
+                  <option value="select">--Select--</option>
                   <option value="male">Male</option>
                   <option value="female">Female</option>
                 </select>
@@ -102,9 +102,9 @@
               <td class="tdform">Phone</td>
             </tr>
             <tr>
-              <td class="tdform"><input type="email" class="input" required></td>
+              <td class="tdform"><input type="email" class="input" name="email" required></td>
               <td class="tdform"><input type="email" class="input" name="" id="" required></td>
-              <td class="tdform"><input type="number" class="input" required></td>
+              <td class="tdform"><input type="number" class="input" name="phone" required></td>
             </tr>
           </table>
         </div>
