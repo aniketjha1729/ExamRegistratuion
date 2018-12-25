@@ -71,31 +71,60 @@ body {
 .formcontainer{
   width: 900px;
   height: 540px;
-  border-left: #0fb4dd solid 4px;
+  /* border-left: #0fb4dd solid 4px;
   border-right: #0fb4dd solid 4px;
-  border-bottom: #0fb4dd solid 4px;
-  margin-top: 7%;
+  border-bottom: #0fb4dd solid 4px; */
+  margin-top: 6%;
   margin-left: 15%;
   border-radius: 5px;
+  box-shadow: 3px 3px 5px 5px #0c7de7;
 }
 .formtitle{
   /* border: #0fb4dd solid 4px; */
   background-color:  #0fb4dd;
   border-radius: 5px;
   color: bisque;
+  height: 40px;
+  font-size: 25px; 
+  font-family: 'Abril Fatface', cursive; 
 }
 .frominput{
   margin-top: 3%;
   margin-left: 1%;
   /* border: teal solid 3px; */
 }
-input{
+.input{
   border-radius: 5px;
   border: transparent;
   height: 20px;
-  box-shadow: none
+  box-shadow: none;
+  width:275px; 
 }
 
 .tdform{
   width: 300px;
+}
+select{
+  width: 150px;
+  border: transparent;
+  border-radius: 5px;
+  background-color: white;
+}
+/* table,td,tr{
+  border: 2px solid;
+} */
+.sub{
+  background-color: rgb(201, 25, 25);
+  border-radius:4px;
+  border: transparent; 
+  width: 150px;
+  color: azure;
+  
+}
+.can{
+  background-color: rgb(90, 236, 90);
+  border-radius:4px;
+  border: transparent;
+  width: 150px;
+  color: azure; 
 }
