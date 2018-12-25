@@ -25,7 +25,7 @@
     <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/verify.css" rel="stylesheet">
+    <link href="css/verify1.css" rel="stylesheet">
 </head>
 <body id="page-top">
 
@@ -60,44 +60,44 @@
         </div>
       </nav>
     </div>
-    <div class="msgcontainer">
-        <div class="msgtitle">
-               <center> Registraion Completed! </center>
-            </div>
-        <div class="msg">
-            <div class="fullmsg">
-                Dear Aniket Kumar,<br><br>
-                <p>Your Registration has been created successfully for the positon of Software Engineer
-                    Your Application No is 1245636997 and you can login using your Dob to complete application process.
-                </p>
-                <p>The Login credentials has been sent to your registered emailid and mobile number for future refernce.
-                </p>
-                <p>Please click on the below tab to complete your application process.</p>
-                <b>Thanks & Regards,<br>Aniket Jha</b>
-            </div>
-            <div ><center><button type="submit" class="button">Login and Continue</button></center></div>
-        </div>
-    </div>
+    <?php
+      session_start();
+      if(isset($_POST['verify'])){
+        if($_SESSION["code"]==$_POST["captcha"]){
+          $name=$_POST['name'];
+          $phone=$_POST['phone'];
+          $dob=$_POST['dob'];
+          $email=$_POST['email'];
+           echo "<div class=\"msgcontainer\">
+                <div class=\"msgtitle\">
+                      <center> Registraion Completed! </center>
+                    </div>
+                <div class=\"msg\">
+                    <div class=\"fullmsg\">
+                        Dear <b> $name </b>,<br><br>
+                        <p>Your Registration has been created successfully for the positon of Software Engineer
+                            Your Application No is";
+                            $regen='0123456789';
+                            $regen=substr(str_shuffle($regen),0,6);
+                            $regnum='SOFT'.$regen;
+                            echo "<b> $regnum
+                            </b> and you can login using your <b>DOB</b> to complete application process.
+                        </p>
+                        <p>The Login credentials has been sent to your registered emailid and mobile number for future refernce.
+                        </p>
+                        <p>Please click on the below tab to complete your application process.</p>
+                        <b>Thanks & Regards,<br>Aniket Jha</b>
+                    </div>
+                    <div ><center><button type=\"submit\" class=\"button\">Login and Continue</button></center></div>
+                </div>
+            </div>";
+        }
+        else{
+          header("Location: http://localhost/php/index.php");
+        }
+      }
 
+      ?>
 
-<?php
-session_start();
-if(isset($_POST['verify'])){
-    if ($_SESSION["code"] == $_POST["captcha"]) {
-        $name=$_POST['name'];
-        $phone=$_POST['phone'];
-        $dob=$_POST['dob'];
-        $email=$_POST['email'];
-        // foreach($_POST['gender'] as $gen)
-        //     echo $gen;
-        // echo "<br/><b>File Name:</b> " . $name. "<br>";
-        // echo "<br/><b>File Name:</b> " . $phone. "<br>";
-        // echo "<br/><b>File Name:</b> " . $dob. "<br>";
-        // echo "<br/><b>File Name:</b> " . $email. "<br>";
-    } else {
-        header("Location: http://localhost/php/index.php");
-    }
-}
-?>
 </body>
 </html>
