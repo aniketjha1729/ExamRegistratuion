@@ -78,7 +78,7 @@
             </tr>
             <tr>
               <td class="tdform"><input type="text" class="input" name="dob" placeholder="DD/MM/YYYY" required></td>
-              <td class="tdform"><input type="text" class="input" name="" id="" required></td>
+              <td class="tdform"><input type="text" class="input" name="page" id="" required></td>
               <td class="tdform">
                 <select name="gender[]" id="" style="-webkit-appearance: none";>
                   <option value="select">--Select--</option>
