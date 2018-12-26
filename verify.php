@@ -83,12 +83,19 @@
                             echo "<b> $regnum
                             </b> and you can login using your <b>DOB</b> to complete application process.
                         </p>
-                        <p>The Login credentials has been sent to your registered emailid and mobile number for future refernce.
+                        <p>
+                          The Login credentials has been sent to your registered emailid and mobile number for future refernce.
                         </p>
                         <p>Please click on the below tab to complete your application process.</p>
                         <b>Thanks & Regards,<br>Aniket Jha</b>
                     </div>
-                    <div ><center><button type=\"submit\" class=\"button\">Login and Continue</button></center></div>
+                    <form action=\"form.php\" method=\"post\">
+                      <div >
+                        <center>
+                          <button type=\"submit\" class=\"button\" name=\"login\">Login and Continue</button>
+                        </center>
+                      </div>
+                    </form>
                 </div>
             </div>";
         }
@@ -96,8 +103,10 @@
           header("Location: http://localhost/php/index.php");
         }
       }
-
+      else{
+        header("Location: http://localhost/php/index.php");
+      }
       ?>
-
+</form>
 </body>
 </html>

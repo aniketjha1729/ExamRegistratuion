@@ -20,14 +20,10 @@
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
-
     <!-- Custom styles for this template -->
     <link href="css/agency.css" rel="stylesheet">
-
   </head>
-
   <body id="page-top">
-
     <!-- Navigation -->
     <div class="navbarcontainer">
       <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
@@ -60,7 +56,6 @@
       </nav>
     </div>
     <!-- Form -->
-  
     <div class="formcontainer">
       <div class="formtitle">
        <center> Registraion Form</center>
@@ -68,7 +63,7 @@
       <form action="verify.php" method="post">
         <div class="frominput">
           <span>Post applied For:</span>
-          <div><b> Software Engineer</b></div>
+          <div><b>Software Engineer</b></div>
         </div>
         <div class="frominput">
           <span>Name of the candidate (As per 10th certificate)* </span>
@@ -129,5 +124,4 @@
       </form>
     </div>
   </body>
-
 </html>
