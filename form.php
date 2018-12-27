@@ -20,7 +20,7 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Aleo" rel="stylesheet">
     <!-- Custom styles for this template -->
-    <link href="css/form.css" rel="stylesheet">
+    <link href="css/form1.css" rel="stylesheet">
 </head>
 <body id="page-top">
     <!-- Navigation -->
@@ -54,7 +54,7 @@
         </div>
       </nav>
     </div>
-    </form>
+  
     <?php
         session_start();
         if(isset($_POST['login'])){
@@ -80,7 +80,7 @@
                     </div>
                   </div>
                   </form>
-            <form action=\"logout.php\" method=\"post\">   
+            <form action=\"upload.php\" method=\"post\">   
               <div class=\"formcontainer\">
                   <div class=\"personaldtails-title\">
                     <b>Personal Details</b>
@@ -90,8 +90,8 @@
                     <b> Software Engineer
                     <table>
                       <tr>
-                        <td><b>Name of the Candidate:*</td>
-                        <td><b>Mobile No.</td>
+                        <td><b>Name of the Candidate:*</b></td>
+                        <td><b>Mobile No.</b></td>
                         <td>Email</td>
                       </tr>
                       <tr>
@@ -221,10 +221,15 @@
                   </div> 
               </div>
             </form>";
+            $_SESSION['name']=$_SESSION['name'];
+            $_SESSION['regnum']=$_SESSION['regnum'];
+            $_SESSION['phone']=$_SESSION['phone'];
+            $_SESSION['email']=$_SESSION['email'];
+            $_SESSION['gender']=$_SESSION['gender'];
+            $_SESSION['dob']=$_SESSION['dob'];
         }
         else{
-            header("Location: http://localhost/php/index.php");
-            
+            header("Location: http://localhost/php/index.php");  
         }
     ?>
 </body>

@@ -44,6 +44,7 @@
                             $sql="INSERT INTO fileupload(filepath) VALUES ('$imgFullpath')";
                             if($result=mysqli_query($conn,$sql)){
                                 echo "Path successfully copied";
+                                echo '<img src="upload/'.$filename.'" id="fileimage" class="filename"/>';
                             }else{
                                 echo "Something went wrong";
                             }
