@@ -123,12 +123,20 @@ body {
 /* table,tr,td{
     border: #212529 solid 2px;
 } */
-.logout{
-    margin-left: 50%;
+
+.log-out{
+    margin-left: 20%;
     border-radius: 5px;
-    background-color: rgb(228, 15, 15);
+    background-color: hsl(0, 82%, 66%);
+    /* border: transparent; */
+    width: 100px;
+}
+
+.savebutton{
+    border-radius: 5px;
+    background-color: rgb(29, 141, 19);
     border: transparent;
-    
+
 }
 .input{
     border-radius: 5px;
@@ -164,4 +172,11 @@ select{
     border: transparent;
     box-shadow: none;
     width: 90px;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
 }

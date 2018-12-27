@@ -68,6 +68,9 @@
           $phone=$_POST['phone'];
           $dob=$_POST['dob'];
           $email=$_POST['email'];
+          foreach($_POST['gender'] as $gender){
+            $gen=$gender;
+          }
            echo "<div class=\"msgcontainer\">
                 <div class=\"msgtitle\">
                       <center> Registraion Completed! </center>
@@ -80,8 +83,14 @@
                             $regen='0123456789';
                             $regen=substr(str_shuffle($regen),0,6);
                             $regnum='SOFT'.$regen;
-                            echo "<b> $regnum
-                            </b> and you can login using your <b>DOB</b> to complete application process.
+                            echo "<b> $regnum";
+                            $_SESSION['name']=$name;
+                            $_SESSION['regnum']=$regnum;
+                            $_SESSION['phone']=$phone;
+                            $_SESSION['email']=$email;
+                            $_SESSION['gender']=$gen;
+                            $_SESSION['dob']=$dob;
+                          echo  "</b> and you can login using your <b>DOB</b> to complete application process.
                         </p>
                         <p>
                           The Login credentials has been sent to your registered emailid and mobile number for future refernce.
