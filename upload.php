@@ -20,7 +20,7 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Aleo" rel="stylesheet">
     <!-- Custom styles for this template -->
-    <link href="css/upload.css" rel="stylesheet">
+    <link href="css/upload1.css" rel="stylesheet">
 </head>
 <body id="page-top">
     <!-- Navigation -->
@@ -54,6 +54,7 @@
         </div>
       </nav>
     </div>
+    
     <?php
         session_start();
         if(isset($_POST['continue'])){
@@ -78,69 +79,37 @@
                     <div class=\"formtitle\">
                     <center> Registraion Form</center>
                     </div>
-                    <form action=\"verify.php\" method=\"post\">
-                    <div class=\"frominput\">
-                        <span>Post applied For:</span>
-                        <div><b>Software Engineer</b></div>
-                    </div>
-                    <div class=\"frominput\">
-                        <span>Name of the candidate (As per 10th certificate)* </span>
-                        <div><input type=\"text\" class=\"input\" name=\"name\" placeholder=\"Full Name\" required></div>
-                    </div>\
-                    <div class=\"frominput\">
-                        <table>
-                        <tr>
-                            <td class=\"tdform\">Date of Birth</td>
-                            <td class=\"tdform\">Age Calculated as of now</td>
-                            <td class=\"tdform\">Gender</td>
-                        </tr>
-                        <tr>
-                            <td class=\"tdform\"><input type=\"text\" class=\"input\" name=\"dob\" placeholder=\"DD/MM/YYYY\" required></td>
-                            <td class=\"tdform\"><input type=\"text\" class=\"input\" name=\"page\"  required></td>
-                            <td class=\"tdform\">
-                            <select name=\"gender[]\"  style=\"-webkit-appearance: none\";>
-                                <option value=\"select\">--Select--</option>
-                                <option value=\"Male\">Male</option>
-                                <option value=\"Female\">Female</option>
-                            </select>
+                    
+                    <table class=\"pic\">
+                        <tr> 
+                            <td class=\"td1\"><b>Upload Photograph(JPG,JPEG only)*</b><br><br>
+                                <form enctype=\"multipart/form-data\" method=\"post\" >
+                                    <input type=\"file\" name=\"file\" id=\"file\"><br><br>
+                                    <button type=\"submit\" name=\"picbtn\" class=\"fullupload\">Upload</button>
+                                </form>
+                            </td>
+                            <td>
+                                <img src=\"upload/Albert_Einstein_(Nobel).png\" id=\"fileimage\" class=\"picupload\">
                             </td>
                         </tr>
-                        </table>
-                    </div>
-                    <div class=\"frominput\">
-                        <table>
-                        <tr>
-                            <td class=\"tdform\">Email</td>
-                            <td class=\"tdform\">Confirm Email</td>
-                            <td class=\"tdform\">Phone</td>
+                        <tr> 
+                            <td class=\"td1\"><b>Upload Photograph(JPG,JPEG only)*</b><br><br>
+                                <form enctype=\"multipart/form-data\" method=\"post\" >
+                                    <input type=\"file\" name=\"file\" id=\"file\"><br><br>
+                                    <button type=\"submit\" name=\"signbtn\" class=\"fullupload\">Upload</button>
+                                </form>
+                            </td>
+                            <td>
+                                <img src=\"upload/B612_20181103_222640_472.jpg\" id=\"fileimage\" class=\"signupload\">
+                            </td>
                         </tr>
-                        <tr>
-                            <td class=\"tdform\"><input type=\"email\" class=\"input\" name=\"email\" required></td>
-                            <td class=\"tdform\"><input type=\"email\" class=\"input\" required></td>
-                            <td class=\"tdform\"><input type=\"number\" class=\"input\" name=\"phone\" required></td>
-                        </tr>
-                        </table>
+                    </table>
+                    <div class=\"upload\">
+                        <form action=\"go.php\" method=\"post\">
+                           <center> <button type=\"submit\" name=\"fullupload\" class=\"fullupload\">View Details</button></center>
+                        </form>
                     </div>
-                    <div class=\"frominput\">
-                        Captcha Code*:
-                        <img id=\"img\" src=\"captcha.php\"/>
-                        <input id=\"captcha1\" name=\"captcha\" type=\"text\">
-                    </div>
-                    <div class=\"frominput\">
-                        <table>
-                        <tr>
-                            <td class=\"agree\"><input type=\"checkbox\" required></td>
-                            <td class=\"agree\">I declare that I have gone through the advertisement and I satisfy the Reqirements as per Rule.</td>
-                        </tr></table> 
-                    </div>
-                    <div class=\"frominput\">
-                    <center>
-                        <button type=\"submit\" name=\"verify\" class=\"sub\">Save and Continue</button>
-                        <button type=\"submit\" name=\"cancel\" class=\"can\">Cancel</button>
-                    </center>
-                    </div>
-                    </form>
-                </div>";
+                  </div>";
         }
         else{
             header("Location: http://localhost/php/index.php");
