@@ -1,4 +1,4 @@
-\<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 
@@ -20,7 +20,7 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Aleo" rel="stylesheet">
     <!-- Custom styles for this template -->
-    <link href="css/upload1.css" rel="stylesheet">
+    <link href="css/upload.css" rel="stylesheet">
 </head>
 <body id="page-top">
     <!-- Navigation -->
@@ -57,12 +57,12 @@
     
     <?php
         session_start();
-        if(isset($_POST['continue'])){
+        //if(isset($_POST['continue'])){
            echo "<form action=\"index.php\" method=\"post\">
                   <div class=\"header\">
                     <div class=\"headercontent\">
                       <span>
-                          <table>
+                          <table class=\"details\">
                               <tr>
                                   <td>Candidate Name:<b>";
                                   echo $_SESSION['name']; echo "</b><br> </td>
@@ -76,44 +76,60 @@
                   </div>
                   </form>";
             echo "<div class=\"formcontainer\">
-                    <div class=\"formtitle\">
-                    <center> Registraion Form</center>
-                    </div>
-                    
-                    <table class=\"pic\">
-                        <tr> 
-                            <td class=\"td1\"><b>Upload Photograph(JPG,JPEG only)*</b><br><br>
-                                <form enctype=\"multipart/form-data\" method=\"post\" >
-                                    <input type=\"file\" name=\"file\" id=\"file\"><br><br>
-                                    <button type=\"submit\" name=\"picbtn\" class=\"fullupload\">Upload</button>
-                                </form>
-                            </td>
-                            <td>
-                                <img src=\"upload/Albert_Einstein_(Nobel).png\" id=\"fileimage\" class=\"picupload\">
-                            </td>
-                        </tr>
-                        <tr> 
-                            <td class=\"td1\"><b>Upload Photograph(JPG,JPEG only)*</b><br><br>
-                                <form enctype=\"multipart/form-data\" method=\"post\" >
-                                    <input type=\"file\" name=\"file\" id=\"file\"><br><br>
-                                    <button type=\"submit\" name=\"signbtn\" class=\"fullupload\">Upload</button>
-                                </form>
-                            </td>
-                            <td>
-                                <img src=\"upload/B612_20181103_222640_472.jpg\" id=\"fileimage\" class=\"signupload\">
-                            </td>
-                        </tr>
-                    </table>
-                    <div class=\"upload\">
-                        <form action=\"go.php\" method=\"post\">
-                           <center> <button type=\"submit\" name=\"fullupload\" class=\"fullupload\">View Details</button></center>
-                        </form>
-                    </div>
-                  </div>";
-        }
-        else{
+                        <div class=\"formtitle\">
+                            <center> Registraion Form</center>
+                        </div>
+                    <div class=\"uplaod\">
+                        <table class=\"content\">
+                            <tr>
+                                <th colspan=\"2\" class=\"col\"><center>Upload Your Picture</center></th>
+                                <th colspan=\"2\" class=\"col\"><center>Upload Your Signature</center></th>
+                            </tr>
+                            <form method=\"post\" enctype='multipart/form-data'>
+                                <tr>
+                                    <td colspan=\"2\" class=\"col\"><center><input type=\"file\" name=\"upload[]\"></center></td>
+                                    <td colspan=\"2\" class=\"col\"><center><input type=\"file\" name=\"upload[]\"></center></td>
+                                </tr>
+                                <tr>
+                                    <td colspan=\"4\" class=\"col\"><center><button type=\"submit\" name=\"upload\" class=\"next\">Upload</button></center></td>
+                                </tr>
+                            </form>";
+                                if(isset($_POST['upload'])){
+                                    //error_reporting(0);
+                                    //echo "hello";
+                                    for($i=0; $i<2; $i++) {
+                                        $tmpFilePath = $_FILES['upload']['tmp_name'][$i];
+                                        if ($tmpFilePath != ""){
+                                            $file[$i] = $newFilePath = "upload/" .$_SESSION['regnum'].$_FILES['upload']['name'][$i];
+                                            if(move_uploaded_file($tmpFilePath, $newFilePath)) {
+                                                $filename[$i]=$_SESSION['regnum'].$_FILES['upload']['name'][$i];
+                                                //echo $filename[$i]; 
+                                            }
+                                        }
+                                    }
+                                    $i=0;
+                                    echo "<tr>
+                                            <td colspan=\"2\" rowspan=\"4\"><center>";
+                                                echo '<img src="upload/'.$filename[0].'" id="fileimage"  class="pic"/>';
+                                                echo "</center>
+                                            </td>
+                                            <td colspan=\"2\" rowspan=\"4\"><center>";
+                                                echo '<img src="upload/'.$filename[1].'" id="fileimage"  class="sign"/>';
+                                                echo "</center>
+                                            </td>        
+                                         </tr>";
+                                }
+                        
+                        echo  "</table>
+                    </div><br>
+                    <div class=\"footer\"><center><button type=\"submit\" class=\"next\" >Save and Next</button></center></div>
+
+                </div>";
+        //}
+        //else{
             header("Location: http://localhost/php/index.php");
-        }
+           // }    
     ?>
+            
 </body>
 </html>
