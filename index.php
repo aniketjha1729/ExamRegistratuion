@@ -113,7 +113,8 @@
             <tr>
               <td class="agree"><input type="checkbox" name="" id="" required></td>
               <td class="agree">I declare that I have gone through the advertisement and I satisfy the Reqirements as per Rule.</td>
-            </tr></table> 
+            </tr>
+          </table> 
         </div>
         <div class="frominput">
         <center>

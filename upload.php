@@ -54,7 +54,6 @@
         </div>
       </nav>
     </div>
-    
     <?php
         session_start();
         if(isset($_POST['continue'])){
@@ -75,6 +74,8 @@
                     </div>
                   </div>
                   </form>";
+                  $_SESSION['regnum']=$_SESSION['regnum'];
+                  $_SESSION['name']=$_SESSION['name'];
             echo "<div class=\"formcontainer\">
                         <div class=\"formtitle\">
                             <center> Registraion Form</center>
@@ -125,11 +126,12 @@
                     </div><br>
                     <form action=\"preview.php\" method=\"post\">
                         <div class=\"footer\"><center><button type=\"submit\" class=\"next\" name=\"preview\">Save and Next</button></center></div>
+                        <input type=\"hidden\" name=\"continue\" />        
                     </form>
                 </div>";
-                if(isset($_POST['preview'])){
-                    header("Location: http://localhost/php/preview.php");
-                }
+                // if(isset($_POST['preview'])){
+                //     header("Location: http://localhost/php/preview.php");
+                // }
         }
         else{
             header("Location: http://localhost/php/index.php");
