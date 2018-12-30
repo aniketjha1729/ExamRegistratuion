@@ -57,7 +57,7 @@
     
     <?php
         session_start();
-        //if(isset($_POST['continue'])){
+        if(isset($_POST['continue'])){
            echo "<form action=\"index.php\" method=\"post\">
                   <div class=\"header\">
                     <div class=\"headercontent\">
@@ -93,6 +93,7 @@
                                 <tr>
                                     <td colspan=\"4\" class=\"col\"><center><button type=\"submit\" name=\"upload\" class=\"next\">Upload</button></center></td>
                                 </tr>
+                                <input type=\"hidden\" name=\"continue\" />
                             </form>";
                                 if(isset($_POST['upload'])){
                                     //error_reporting(0);
@@ -122,13 +123,17 @@
                         
                         echo  "</table>
                     </div><br>
-                    <div class=\"footer\"><center><button type=\"submit\" class=\"next\" >Save and Next</button></center></div>
-
+                    <form action=\"preview.php\" method=\"post\">
+                        <div class=\"footer\"><center><button type=\"submit\" class=\"next\" name=\"preview\">Save and Next</button></center></div>
+                    </form>
                 </div>";
-        //}
-        //else{
+                if(isset($_POST['preview'])){
+                    header("Location: http://localhost/php/preview.php");
+                }
+        }
+        else{
             header("Location: http://localhost/php/index.php");
-           // }    
+         }    
     ?>
             
 </body>
