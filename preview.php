@@ -82,7 +82,11 @@
                         <tr>
                             <td class="tddata" colspan="2">aniket aniket</td>
                             <td class="tddata" colspan="2">aniket</td>
-                            <td class="tddata"colspan="2" rowspan="3"><img src="phodddto - Copy.jpg" class="pic"></td>
+                            <td class="tddata"colspan="2" rowspan="3">
+                            <?php
+                                echo '<img src="upload/'.$_SESSION['pic'].'" id="fileimage"  class="pic"/>';
+                            ?>
+                            </td>
                         </tr>
                         <tr>
                             <td class="tddata"colspan="2">aniket</td>
@@ -202,7 +206,11 @@
                     </table>
                     <br>
                     <div class="footer">
-                        <div><img src="sissgn - Copy.jpg" class="sign"></div>
+                        <div>
+                        <?php
+                                echo '<img src="upload/'.$_SESSION['sign'].'" id="fileimage"  class="sign"/>';
+                            ?>
+                        </div>
                         <table>
                             <tr>
                                 <td class="agree"><input type="checkbox" name="" id="" required></td>

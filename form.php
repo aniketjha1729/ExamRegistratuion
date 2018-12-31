@@ -20,7 +20,7 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Aleo" rel="stylesheet">
     <!-- Custom styles for this template -->
-    <link href="css/form1.css" rel="stylesheet">
+    <link href="css/form.css" rel="stylesheet">
 </head>
 <body id="page-top">
     <!-- Navigation -->
@@ -118,7 +118,7 @@
                         <td><input type=\"text\" class=\"input\" name=\"fname\" required></td>
                         <td><input type=\"text\" class=\"input\" name=\"mname\" required></td>
                         <td>
-                          <select name=\"Marital[]\"  style=\"-webkit-appearance: none\";>
+                          <select name=\"marital[]\"  style=\"-webkit-appearance: none\";>
                             <option value=\"select\">--Select--</option>
                             <option value=\"Maried\">Maried</option>
                             <option value=\"Unmaried\">Unmaried</option>
@@ -143,14 +143,10 @@
                   <div class=\"address\">
                     <table>
                       <tr>
-                          <td><b>Address Line1*</td>
-                          <td><b>Address Line2*</td>
-                          <td><b>Address Line3*</td>
+                          <td><b>Address Line</td>
                         </tr>
                         <tr>
-                          <td><input type=\"text\" class=\"input-address\" name=\"adress\" required></td>
-                          <td><input type=\"text\" class=\"input-address\" name=\"adress\" required></td>
-                          <td><input type=\"text\" class=\"input-address\" name=\"adress\" required></td>
+                          <td><input type=\"text\" class=\"input-address\" name=\"address\" required></td>
                         </tr>
                         <tr>
                           <td><b>State*</td>
@@ -226,7 +222,7 @@
             $_SESSION['phone']=$_SESSION['phone'];
             $_SESSION['email']=$_SESSION['email'];
             $_SESSION['gender']=$_SESSION['gender'];
-            $_SESSION['dob']=$_SESSION['dob'];
+            $_SESSION['dob']=$_SESSION['dob']; 
         }
         else{
             header("Location: http://localhost/php/index.php");  

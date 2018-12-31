@@ -56,6 +56,7 @@
     </div>
     <?php
         session_start();
+        error_reporting(0);
         if(isset($_POST['continue'])){
            echo "<form action=\"index.php\" method=\"post\">
                   <div class=\"header\">
@@ -74,6 +75,23 @@
                     </div>
                   </div>
                   </form>";
+                  $fname=$_POST['fname'];$mname=$_POST['mname'];$religion=$_POST['religion'];$nationality=$_POST['nationality'];
+                  $domicile=$_POST['domicile'];$address=$_POST['address'];$state=$_POST['state'];$city=$_POST['city'];
+                  $picode=$_POST['pincode'];$icourse=$_POST['icourse'];$istream=$_POST['istream'];$iboard=$_POST['iboard'];
+                  $imarks=$_POST['imarks'];$iyear=$_POST['iyear'];$imode=$_POST['imode'];
+
+                  $gcourse=$_POST['gcourse'];$gstream=$_POST['gstream'];$gboard=$_POST['gboard'];
+                  $gmarks=$_POST['gmarks'];$gyear=$_POST['gyear'];$gmode=$_POST['gmode'];
+
+                  foreach($_POST['marital'] as $m){
+                    $marital=$m;
+                  }
+                  foreach($_POST['iclass'] as $m){
+                    $iclass=$m;
+                  }
+                  foreach($_POST['marital'] as $m){
+                    $gclass=$m;
+                  }
                   $_SESSION['regnum']=$_SESSION['regnum'];
                   $_SESSION['name']=$_SESSION['name'];
             echo "<div class=\"formcontainer\">
@@ -120,6 +138,8 @@
                                                 echo "</center>
                                             </td>        
                                          </tr>";
+                                         $_SESSION['pic']=$filename[0];
+                                         $_SESSION['sign']=$filename[1];
                                 }
                         
                         echo  "</table>
