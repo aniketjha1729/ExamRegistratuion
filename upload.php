@@ -75,9 +75,10 @@
                     </div>
                   </div>
                   </form>";
+                  $regnum=$_SESSION['regnum'];
                   $fname=$_POST['fname'];$mname=$_POST['mname'];$religion=$_POST['religion'];$nationality=$_POST['nationality'];
                   $domicile=$_POST['domicile'];$address=$_POST['address'];$state=$_POST['state'];$city=$_POST['city'];
-                  $picode=$_POST['pincode'];$icourse=$_POST['icourse'];$istream=$_POST['istream'];$iboard=$_POST['iboard'];
+                  $pincode=$_POST['pincode'];$icourse=$_POST['icourse'];$istream=$_POST['istream'];$iboard=$_POST['iboard'];
                   $imarks=$_POST['imarks'];$iyear=$_POST['iyear'];$imode=$_POST['imode'];
 
                   $gcourse=$_POST['gcourse'];$gstream=$_POST['gstream'];$gboard=$_POST['gboard'];
@@ -89,69 +90,80 @@
                   foreach($_POST['iclass'] as $m){
                     $iclass=$m;
                   }
-                  foreach($_POST['marital'] as $m){
+                  foreach($_POST['gclass'] as $m){
                     $gclass=$m;
                   }
-                  $_SESSION['regnum']=$_SESSION['regnum'];
-                  $_SESSION['name']=$_SESSION['name'];
-            echo "<div class=\"formcontainer\">
-                        <div class=\"formtitle\">
-                            <center> Registraion Form</center>
-                        </div>
-                    <div class=\"uplaod\">
-                        <table class=\"content\">
-                            <tr>
-                                <th colspan=\"2\" class=\"col\"><center>Upload Your Picture</center></th>
-                                <th colspan=\"2\" class=\"col\"><center>Upload Your Signature</center></th>
-                            </tr>
-                            <form method=\"post\" enctype='multipart/form-data'>
-                                <tr>
-                                    <td colspan=\"2\" class=\"col\"><center><input type=\"file\" name=\"upload[]\"></center></td>
-                                    <td colspan=\"2\" class=\"col\"><center><input type=\"file\" name=\"upload[]\"></center></td>
-                                </tr>
-                                <tr>
-                                    <td colspan=\"4\" class=\"col\"><center><button type=\"submit\" name=\"upload\" class=\"next\">Upload</button></center></td>
-                                </tr>
-                                <input type=\"hidden\" name=\"continue\" />
-                            </form>";
-                                if(isset($_POST['upload'])){
-                                    //error_reporting(0);
-                                    //echo "hello";
-                                    for($i=0; $i<2; $i++) {
-                                        $tmpFilePath = $_FILES['upload']['tmp_name'][$i];
-                                        if ($tmpFilePath != ""){
-                                            $file[$i] = $newFilePath = "upload/" .$_SESSION['regnum'].$_FILES['upload']['name'][$i];
-                                            if(move_uploaded_file($tmpFilePath, $newFilePath)) {
-                                                $filename[$i]=$_SESSION['regnum'].$_FILES['upload']['name'][$i];
-                                                //echo $filename[$i]; 
+                  require "connect.php";
+                  $query="UPDATE data SET fname='$fname',mname='$mname',marital='$marital',religion='$religion',
+                            nationality='$nationality',domicile='$domicile',address='$address',state='$state',
+                            city='$city',pincode='$pincode',icourse='$icourse',istream='$istream',iboard='$iboard',
+                            imarks='$imarks',iclass='$iclass',iyear='$iyear',imode='$imode',
+                            gcourse='$gcourse',gstream='$gstream',gboard='$gboard',
+                            gmarks='$gmarks',gclass='$gclass',gyear='$gyear',gmode='$gmode'
+                       WHERE regnum='$regnum'";
+                  $result=mysqli_query($conn,$query);
+                  if($result){ 
+
+                        $_SESSION['regnum']=$_SESSION['regnum'];
+                        $_SESSION['name']=$_SESSION['name'];
+                        echo "<div class=\"formcontainer\">
+                                <div class=\"formtitle\">
+                                    <center> Registraion Form</center>
+                                </div>
+                            <div class=\"uplaod\">
+                                <table class=\"content\">
+                                    <tr>
+                                        <th colspan=\"2\" class=\"col\"><center>Upload Your Picture</center></th>
+                                        <th colspan=\"2\" class=\"col\"><center>Upload Your Signature</center></th>
+                                    </tr>
+                                    <form method=\"post\" enctype='multipart/form-data'>
+                                        <tr>
+                                            <td colspan=\"2\" class=\"col\"><center><input type=\"file\" name=\"upload[]\"></center></td>
+                                            <td colspan=\"2\" class=\"col\"><center><input type=\"file\" name=\"upload[]\"></center></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan=\"4\" class=\"col\"><center><button type=\"submit\" name=\"upload\" class=\"next\">Upload</button></center></td>
+                                        </tr>
+                                        <input type=\"hidden\" name=\"continue\" />
+                                    </form>";
+                                        if(isset($_POST['upload'])){
+                                            //error_reporting(0);
+                                            //echo "hello";
+                                            for($i=0; $i<2; $i++) {
+                                                $tmpFilePath = $_FILES['upload']['tmp_name'][$i];
+                                                if ($tmpFilePath != ""){
+                                                    $file[$i] = $newFilePath = "upload/" .$_SESSION['regnum'].$_FILES['upload']['name'][$i];
+                                                    if(move_uploaded_file($tmpFilePath, $newFilePath)) {
+                                                        $filename[$i]=$_SESSION['regnum'].$_FILES['upload']['name'][$i];
+                                                        //echo $filename[$i]; 
+                                                    }
+                                                }
                                             }
+                                            $i=0;
+                                            echo "<tr>
+                                                    <td colspan=\"2\" rowspan=\"4\"><center>";
+                                                        echo '<img src="upload/'.$filename[0].'" id="fileimage"  class="pic"/>';
+                                                        echo "</center>
+                                                    </td>
+                                                    <td colspan=\"2\" rowspan=\"4\"><center>";
+                                                        echo '<img src="upload/'.$filename[1].'" id="fileimage"  class="sign"/>';
+                                                        echo "</center>
+                                                    </td>        
+                                                </tr>";
+                                                $_SESSION['pic']=$filename[0];
+                                                $_SESSION['sign']=$filename[1];
                                         }
-                                    }
-                                    $i=0;
-                                    echo "<tr>
-                                            <td colspan=\"2\" rowspan=\"4\"><center>";
-                                                echo '<img src="upload/'.$filename[0].'" id="fileimage"  class="pic"/>';
-                                                echo "</center>
-                                            </td>
-                                            <td colspan=\"2\" rowspan=\"4\"><center>";
-                                                echo '<img src="upload/'.$filename[1].'" id="fileimage"  class="sign"/>';
-                                                echo "</center>
-                                            </td>        
-                                         </tr>";
-                                         $_SESSION['pic']=$filename[0];
-                                         $_SESSION['sign']=$filename[1];
-                                }
-                        
-                        echo  "</table>
-                    </div><br>
-                    <form action=\"preview.php\" method=\"post\">
-                        <div class=\"footer\"><center><button type=\"submit\" class=\"next\" name=\"preview\">Save and Next</button></center></div>
-                        <input type=\"hidden\" name=\"continue\" />        
-                    </form>
-                </div>";
-                // if(isset($_POST['preview'])){
-                //     header("Location: http://localhost/php/preview.php");
-                // }
+                                
+                                echo  "</table>
+                            </div><br>
+                            <form action=\"preview.php\" method=\"post\">
+                                <div class=\"footer\"><center><button type=\"submit\" class=\"next\" name=\"preview\">Save and Next</button></center></div>
+                                <input type=\"hidden\" name=\"continue\" />        
+                            </form>
+                        </div>";
+                  }else{
+                      echo "opps";
+                  }                       
         }
         else{
             header("Location: http://localhost/php/index.php");

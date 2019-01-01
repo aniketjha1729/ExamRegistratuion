@@ -62,14 +62,21 @@
     </div>
     <?php
       session_start();
-      if(isset($_POST['verify'])){
-        if($_SESSION["code"]==$_POST["captcha"]){
-          $name=$_POST['name'];
-          $phone=$_POST['phone'];
-          $dob=$_POST['dob'];
+      if(isset($_POST['login'])){
+          require "connect.php";
           $email=$_POST['email'];
-          foreach($_POST['gender'] as $gender){
-            $gen=$gender;
+          $pass=$_POST['password'];
+          $query="SELECT * FROM reg WHERE email='$email' and dob='$pass'";
+          $result=mysqli_query($conn,$query);
+          $num=mysqli_num_rows($result);
+          if($num!=0){
+              $data=mysqli_fetch_assoc($result);
+              $name=$data['name'];
+              $regnum=$data['regnum'];
+              $phone=$data['phone'];
+              $email=$data['email'];
+              $gen=$data['gender'];
+              $dob=$data['dob'];
           }
            echo "<div class=\"msgcontainer\">
                 <div class=\"msgtitle\">
@@ -80,9 +87,9 @@
                         Dear <b> $name </b>,<br><br>
                         <p>Your Registration has been created successfully for the positon of Software Engineer
                             Your Application No is";
-                            $regen='0123456789';
-                            $regen=substr(str_shuffle($regen),0,6);
-                            $regnum='SOFT'.$regen;
+                            // $regen='0123456789';
+                            // $regen=substr(str_shuffle($regen),0,6);
+                            // $regnum='SOFT'.$regen;
                             echo "<b> $regnum";
                             $_SESSION['name']=$name;
                             $_SESSION['regnum']=$regnum;
@@ -111,10 +118,6 @@
         else{
           header("Location: http://localhost/php/index.php");
         }
-      }
-      else{
-        header("Location: http://localhost/php/index.php");
-      }
       ?>
 </form>
 </body>

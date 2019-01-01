@@ -60,7 +60,7 @@
       <div class="formtitle">
        <center> Registraion Form</center>
       </div>
-      <form action="verify.php" method="post">
+      <form action="insert.php" method="post">
         <div class="frominput">
           <span>Post applied For:</span>
           <div><b>Software Engineer</b></div>
