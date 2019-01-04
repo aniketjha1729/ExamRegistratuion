@@ -1,0 +1,8 @@
+body{
+    margin: 0;
+}
+
+.navbar{
+    border: 2px solid black;
+    height: 70px;
+}
